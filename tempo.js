@@ -31,7 +31,7 @@ function getTempoObjectsOnRemote() {
             color = classList.item(0);
         };
 
-        this.getObject = function() {
+        this.toObject = function() {
             return {
                 'year':  year,
                 'month': month,
@@ -52,7 +52,7 @@ function getTempoObjectsOnRemote() {
             tempo.parseDay(dayElem);
             tempo.parseColor(colorElem);
 
-            tempoDays.push(tempo.getObject());
+            tempoDays.push(tempo.toObject());
         }
     }
 
