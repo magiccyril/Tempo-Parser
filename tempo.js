@@ -59,14 +59,16 @@ function getTempoObjectsOnRemote() {
     return tempoDays;
 }
 
+function postToApi(self, tempo, i) {
+    self.thenOpen(apiUrl, {method: 'post', data: tempo}, function() {
+        this.log('[POST TO API] : '+ JSON.stringify(tempo), 'info');
+    });
+}
+
 casper
     .start(edfUrl)
     .then(function() {
         var tempos = this.evaluate(getTempoObjectsOnRemote);
-        this.each(tempos, function(self, tempo, i) {
-            self.thenOpen(apiUrl, {method: 'post', data: tempo}, function() {
-                this.log('[POST TO API] : '+ JSON.stringify(tempo), 'debug');
-            });
-        });
+        this.each(tempos, postToApi);
     })
     .run();
