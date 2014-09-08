@@ -40,7 +40,7 @@ function postToApi (tempo) {
     url: config.apiUrl + '/tempo?apikey=' + config.apiKey,
     json: tempo.toObject()
   }, function(error, response, html) {
-    if (error) {
+    if (error || response.statusCode != 200) {
       console.log('Error when saving');
     }
   });

@@ -75,7 +75,7 @@ function postToApi (ejp) {
     url: config.apiUrl + '/ejp?apikey=' + config.apiKey,
     json: ejp.toObject()
   }, function(error, response, html) {
-    if (error) {
+    if (error || response.statusCode != 200) {
       console.log('Error when saving');
     }
   });
