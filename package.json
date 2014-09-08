@@ -1,0 +1,11 @@
+{
+  "name": "TempoScraper",
+  "version": "0.0.1",
+  "dependencies": {
+    "cheerio": "^0.17.0",
+    "request": "^2.42.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
