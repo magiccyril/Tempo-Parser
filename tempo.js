@@ -21,8 +21,25 @@ function Tempo () {
   };
 
   this.parseColor = function (elem) {
-    var classList = elem.removeClass('hp').attr('class');
-    color = classList.split(' ')[0];
+    var period = elem.find('.hp .period').text().toLowerCase();
+
+    switch (period) {
+      case 'bleu':
+        color = 'blue';
+        break;
+
+      case 'blanc':
+        color = 'white';
+        break;
+
+      case 'rouge':
+        color = 'red';
+        break;
+    }
+  };
+
+  this.isColorValid = function () {
+    return 'blue' == color || 'white' == color || 'red' == color;
   };
 
   this.toObject = function () {
@@ -58,14 +75,16 @@ request(config.urlTempo, function (error, response, html) {
     $ = cheerio.load(tempoDay[i]);
 
     var dayElem = $('h4');
-    var colorElem = $('.tempoHours .hp');
+    var colorElem = $('.tempoHours');
 
     if (dayElem && colorElem) {
       var tempo = new Tempo();
       tempo.parseDay(dayElem);
       tempo.parseColor(colorElem);
 
-      postToApi(tempo);
+      if (tempo.isColorValid()) {
+        postToApi(tempo);
+      }
     }
   }
 });

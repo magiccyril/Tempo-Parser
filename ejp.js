@@ -49,15 +49,24 @@ function EJP () {
         var srcUrlParts = src.split('/');
         var filename = srcUrlParts[srcUrlParts.length - 1];
 
-        var isEJP = false;
+        var isEJP = undefined;
         if ('ejp_oui.png' === filename) {
           isEJP = true;
         }
-
+        if ('ejp_non.png' === filename) {
+          isEJP = false;
+        }
 
         zones[indexToZone(i)] = isEJP;
       }
     }
+  };
+
+  this.isZonesValid = function () {
+    return 'boolean' === typeof zones.north
+      && 'boolean' === typeof zones.paca
+      && 'boolean' === typeof zones.west
+      && 'boolean' === typeof zones.south;
   };
 
   this.toObject = function () {
@@ -100,7 +109,9 @@ request(config.urlEjp, function (error, response, html) {
       ejp.parseDay(dayElem);
       ejp.parseZones(zoneElems);
 
-      postToApi(ejp);
+      if (ejp.isZonesValid()) {
+        postToApi(ejp);
+      }
     }
   }
 });
