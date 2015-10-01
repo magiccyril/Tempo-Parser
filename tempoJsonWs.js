@@ -55,14 +55,14 @@ request(createWsUrl(config.urlJsonTempo, 'tempo'), function (error, response, js
     return;
   }
 
-  var json = JSON.parse(json);
+  json = JSON.parse(json);
   
   var today = createTempoObject(moment(), json.JourJ.Tempo);
   if (today) {
     postToApi(today);
   }
 
-  var tomorrow = createTempoObject(moment().add(1, 'day'), json.JourJ.Tempo);
+  var tomorrow = createTempoObject(moment().add(1, 'day'), json.JourJ1.Tempo);
   if (tomorrow) {
     postToApi(tomorrow);
   }
