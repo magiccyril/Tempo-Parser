@@ -3,6 +3,7 @@ var urlTempo      = 'http://particuliers.edf.com/gestion-de-mon-contrat/options-
   , urlJsonTempo  = 'https://particulier.edf.fr/bin/edf_rc/servlets/ejptemponew'
   , urlEjp        = 'https://particuliers.edf.com/gestion-de-mon-contrat/options-tarifaires/option-ejp/l-observatoire-2584.html'
   , urlXmlEjp     = 'http://edf-ejp-tempo.sfr-sh.fr/EDI/site/france/effacementsEJP.xml'
+  , urlJsonEjp    = 'https://particulier.edf.fr/bin/edf_rc/servlets/ejptemponew'
   , apiUrl        = ''
   , apiKey        = '';
 
@@ -13,6 +14,7 @@ module.exports = {
     urlJsonTempo: urlJsonTempo,
     urlEjp: urlEjp,
     urlXmlEjp: urlXmlEjp,
+    urlJsonEjp: urlJsonEjp,
     apiUrl: apiUrl,
     apiKey: apiKey
   },
@@ -22,6 +24,7 @@ module.exports = {
     urlJsonTempo: urlJsonTempo,
     urlEjp: urlEjp,
     urlXmlEjp: urlXmlEjp,
+    urlJsonEjp: urlJsonEjp,
     apiUrl: apiUrl,
     apiKey: apiKey
   },
