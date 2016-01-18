@@ -10,7 +10,7 @@ function parseValue (value) {
     case 'non_ejp':
       return false;
 
-    case 'EST_EJP':
+    case 'est_ejp':
       return true;
     }
 };
