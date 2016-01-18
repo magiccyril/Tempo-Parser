@@ -10,7 +10,7 @@ function parseValue (value) {
     case 'non_ejp':
       return false;
 
-    case 'oui_ejp':
+    case 'EST_EJP':
       return true;
     }
 };
