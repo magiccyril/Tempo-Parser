@@ -3,6 +3,8 @@ var env = process.env.NODE_ENV || 'development'
   , request = require('request')
   , moment = require('moment');
 
+process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+
 function parseValue (value) {
   value = value.toLowerCase();
 

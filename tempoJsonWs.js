@@ -3,6 +3,8 @@ var env = process.env.NODE_ENV || 'development'
   , moment = require('moment')
   , request = require('request');
 
+process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
+
 function parseColor (color) {
   color = color.toLowerCase();
 
